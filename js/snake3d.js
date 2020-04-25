@@ -18,17 +18,21 @@ window.addEventListener("load", () => {
         if (ejex) {
 
             if (cod == 38) {
+
                 xdir = 0;
                 ydir = -espaciado;
                 ejex = false;
                 ejey = true;
+                
             }
             
             if (cod == 40) {
+
                 xdir = 0;
                 ydir = espaciado;
                 ejex = false;
                 ejey = true;
+
             }
 
         }
@@ -36,17 +40,21 @@ window.addEventListener("load", () => {
         if (ejey) {
 
             if (cod == 37) {
+
                 xdir = -espaciado;
                 ydir = 0;
                 ejex = true;
                 ejey = false;
+
             }
 
             if (cod == 39) {
+
                 xdir = espaciado;
                 ydir = 0;
                 ejex = true;
                 ejey = false;
+
             }
 
         }
@@ -65,17 +73,28 @@ window.addEventListener("load", () => {
     function colisiones() {
 
         if (snake.choqueBloque(comida)) {
+
             snake.agregar();
             comida.colocar();
+
         }
+
         if (snake.x < 0 || snake.x > 360 || snake.y < 0 || snake.y > 360) {
+
             findejuego();
+
         }
+
         let temp = null;
+
         try {
+
             temp = snake.verSiguiente().verSiguiente();
+
         } catch (err) {
+
             temp = null;
+
         }
 
         while (temp != null) {
@@ -112,6 +131,6 @@ window.addEventListener("load", () => {
 
     }
 
-    setInterval(bucle, 300);
+    setInterval(bucle, 250);
 
 });
